@@ -3,5 +3,31 @@
   padding:96px 40px;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
+.headerContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerGroup{
+  display: flex;
+  gap:7px;
+  align-items: center;
+}
+
+.navbar{
+  display: flex;
+  gap:30px;
+  justify-content: center;
+}
