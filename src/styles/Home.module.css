@@ -1,6 +1,6 @@
-.body{
-  background-color:#FFFFFF;
-  padding:96px 40px;
+.body {
+  /* padding:96px 40px; */
+  background-color: #ffffff;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,26 +8,124 @@
   gap: 10px;
 }
 
-.headerContainer{
+.headerContainer {
+  padding-left: 96px;
+  padding-right: 96px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-.header{
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.headerGroup{
+.header h1 {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 36px;
+}
+
+.headerGroup {
   display: flex;
-  gap:7px;
+  gap: 7px;
   align-items: center;
 }
 
-.navbar{
+.headerGroup select {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.navbar {
   display: flex;
-  gap:30px;
+  gap: 30px;
   justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.hr {
+  border: 1px solid #e5e5e5;
+  margin: 0;
+}
+
+.mobileHidden {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desktopHidden {
+  display: none; /* Initially hidden */
+}
+
+.navbarMobile {
+  display: none; /* Hidden by default */
+}
+
+.navbarMobile div {
+  flex-direction: column;
+}
+
+/* Mobile Breakpoint */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    border: none;
+    margin-right: 5px;
+    background-color: white;
+  }
+
+  .mobileHidden {
+    display: none;
+  }
+
+  .desktopHidden {
+    display: block;
+  }
+
+  .headerContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .navbarMobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    padding-left: 30px;
+    padding-top: 30px;
+  }
+
+  .navbarMobile button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .navbarMobile div {
+    display: flex;
+    gap: 24px;
+  }
 }
