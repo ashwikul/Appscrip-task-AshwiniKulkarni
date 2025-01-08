@@ -9,7 +9,7 @@ function Tile({ state, updateFunction, list, label }) {
         <h1>{label}</h1>
         <Image
           src={state ? "/arrow-top.svg" : "/arrow-bottom.svg"}
-          alt="Appscrip logo"
+          alt="Arrow"
           width={20}
           height={20}
           onClick={() => updateFunction(!state)}

@@ -45,7 +45,7 @@
 
 .navbar {
   display: flex;
-  gap: 30px;
+  gap: 50px;
   justify-content: center;
   font-weight: 700;
   font-size: 20px;
@@ -60,7 +60,6 @@
 .mobileHidden {
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
 .desktopHidden {
@@ -237,18 +236,29 @@
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
-  /* width: 666px; */
+  width: 100%;
 }
 
-.title h1 {
-  font-size: 60px;
+.titleContainer .title {
+  width: 721px;
+}
+
+.titleContainer .title h1 {
+  font-size: 50px;
+  line-height: 72px;
   font-weight: 400;
-  font-family: "Simplon Norm";
+}
+
+.titleContainer .title p {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 40px;
 }
 
 .filterContainer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
   border-top: 1px solid #e5e5e5;
@@ -260,6 +270,13 @@
   gap: 20px;
 }
 
+.filterContainer p {
+  font-family: Simplon Norm;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
 .filterContainer button {
   display: flex;
   align-items: center;
@@ -267,6 +284,34 @@
   background-color: transparent;
   color: #888792;
   cursor: pointer;
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  position: absolute;
+  top: 60;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  text-align: right;
+
+  font-family: Simplon Norm;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 40px;
+  cursor: pointer;
+  width: max-content;
 }
 
 .card {
@@ -283,13 +328,6 @@
 .card > img {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   object-fit: contain;
-}
-
-.cardTitle {
-  white-space: nowrap; /* Prevents text from wrapping to the next line */
-  overflow: hidden; /* Hides the overflowing text */
-  text-overflow: ellipsis; /* Adds the ellipsis (...) */
-  width: 300px; /* Set a fixed width */
 }
 
 .descriptionContainer {
@@ -383,6 +421,10 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden; /* Hides the overflowing text */
+  text-overflow: ellipsis; /* Adds the ellipsis (...) */
+  width: 300px; /* Set a fixed width */
 }
 
 .cardContent {
@@ -532,5 +574,112 @@
 
   .contentContainer {
     padding: 16px;
+  }
+
+  .titleContainer {
+    padding: 0;
+    padding-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .title h1 {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+
+  .titleContainer .title {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .filterContainerMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    /* font-family: Simplon Norm; */
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.8px;
+  }
+
+  .filterContainerMobile div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .productsContainer {
+    display: grid;
+    column-gap: 5px;
+    row-gap: 10px;
+  }
+
+  .gridWithFilter {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .gridWithoutFilter {
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .card {
+    width: 168px;
+    height: 277px;
+  }
+
+  .card > img {
+    width: 168px;
+    height: 224px;
+    object-fit: contain;
+  }
+
+  .cardTitle {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.8px;
+
+    width: 168px; /* Set a fixed width */
+  }
+
+  .description {
+    font-size: 10px;
+    line-height: 12px;
+  }
+
+  .cardTitleContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .filterSidebar {
+    position: absolute;
+    top: 0;
+    background-color: white;
+    width: 100vw;
+  }
+
+  .dropdown ul {
+    top: 70px;
+    right: 0;
+    left: auto;
+    font-size: 14px;
+    gap: 5px;
+  }
+
+  .titleContainer .title h1 {
+    font-size: 24px;
+    line-height: 72px;
+    font-weight: 400;
+  }
+
+  .titleContainer .title p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
   }
 }

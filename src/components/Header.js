@@ -53,7 +53,7 @@ function Header() {
             <a href="/skills">SKILLS</a>
             <a href="/stories">STORIES</a>
             <a href="/about">ABOUT</a>
-            <a href="/contact">CONTACT US</a>
+            <a href="/contactus">CONTACT US</a>
           </div>
         </nav>
       )}
@@ -62,7 +62,7 @@ function Header() {
         <a href="/skills">SKILLS</a>
         <a href="/stories">STORIES</a>
         <a href="/about">ABOUT</a>
-        <a href="/contact">CONTACT US</a>
+        <a href="/contactus">CONTACT US</a>
       </nav>
     </div>
   );

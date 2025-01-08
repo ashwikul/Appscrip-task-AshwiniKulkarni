@@ -3,17 +3,36 @@ import styles from "@/styles/Home.module.css";
 import Image from "next/image";
 import ProductCard from "./ProductCard";
 import Tile from "./Tile";
+import { useRouter } from "next/router";
 
 function Content() {
   const [productData, setProductData] = useState([]);
   const [displayProducts, setDisplayProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [filterEnabled, setFilterEnabled] = useState(false);
-  const [sortedOn, setSortedOn] = useState("");
+  const [sortedOn, setSortedOn] = useState("recommended");
   const [isIdealFor, setIsIdealFor] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const idealForList = ["Men", "Women", "Baby & Kids"];
+  const sortBasedOnList = [
+    { label: "RECOMMENDED", value: "recommended" },
+    { label: "NEWEST FIRST", value: "newestFirst" },
+    { label: "POPULAR", value: "popular" },
+    { label: "PRICE : HIGH TO LOW", value: "highToLow" },
+    { label: "PRICE : LOW TO HIGH", value: "LowToHigh" },
+  ];
+
+  const router = useRouter();
+  const currentPath = router.pathname; // Gives the current path template (e.g., "/about/[id]")
+  const currentUrl = router.asPath;
+
+  console.log("path", router);
+
   useEffect(() => {
     fetchProducts();
+    const currentPath = router.pathname; // Gives the current path template (e.g., "/about/[id]")
+
+    console.log("path", router);
   }, []);
 
   const fetchProducts = async () => {
@@ -29,16 +48,21 @@ function Content() {
     setFilterEnabled(!filterEnabled);
   };
 
-  const handleSort = (string) => {
-    setSortedOn(string);
+  const handleSort = (e) => {
+    // console.log("value", string);
+
+    const value = e.target.getAttribute("data-value");
+    setSortedOn(value);
+    console.log("string", value);
+
     const data_copy = [...displayProducts];
-    if (string === "highToLow") {
+    if (value === "highToLow") {
       data_copy.sort((a, b) => b.price - a.price);
-    } else if (string === "LowToHigh") {
+    } else if (value === "LowToHigh") {
       data_copy.sort((a, b) => a.price - b.price);
-    } else if (string === "popular") {
+    } else if (value === "popular") {
       data_copy.sort((a, b) => b.rating.count - a.rating.count);
-    } else if (string === "recommended") {
+    } else if (value === "recommended") {
       data_copy.sort((a, b) => b.rating.rate - a.rating.rate);
     }
     console.log("after sorting data", data_copy);
@@ -47,8 +71,16 @@ function Content() {
 
   return (
     <div className={styles.contentContainer}>
+      {/* title  */}
       <div className={styles.titleContainer}>
         <div className={styles.title}>
+          <div
+            className={`${styles.desktopHidden}`}
+            style={{ textAlign: "left" }}
+          >
+            <span style={{ color: "#BFC8CD" }}>HOME |</span>{" "}
+            {currentPath.toUpperCase().split("/")[1]}
+          </div>
           <h1>DISCOVER OUR PRODUCTS</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
@@ -57,13 +89,14 @@ function Content() {
           </p>
         </div>
       </div>
-      <div className={styles.filterContainer}>
+      <div className={`${styles.filterContainer} ${styles.mobileHidden}`}>
         <div>
-          <p>3425 Items</p>
-          <button onClick={handleFilter}>
+          <p>{displayProducts.length} Items</p>
+
+          <button onClick={handleFilter} className={styles.mobileHidden}>
             <Image
               src="/arrow-left.svg"
-              alt="Appscrip logo"
+              alt="arrow left"
               width={16}
               height={16}
             />
@@ -73,17 +106,110 @@ function Content() {
           </button>
         </div>
 
-        <select onChange={(e) => handleSort(e.target.value)}>
-          <option value="recommended">RECOMMENDED</option>
-          <option value="newestFirst">NEWEST FIRST</option>
-          <option value="popular">POPULAR</option>
-          <option value="highToLow">PRICE : HIGH TO LOW</option>
-          <option value="LowToHigh">PRICE : LOW TO HIGH</option>
-        </select>
+        <div
+          className={`${styles.select} ${styles.mobileHidden}`}
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          <p>{sortBasedOnList.find((s) => s.value === sortedOn)?.label}</p>
+          <Image
+            src="/arrow-bottom.svg"
+            alt="arrow bottom"
+            width={20}
+            height={20}
+          />
+          {isDropdownOpen && (
+            <div className={styles.dropdown}>
+              <ul onClick={handleSort}>
+                {sortBasedOnList.map((s) => {
+                  if (s.value === sortedOn) {
+                    return (
+                      <li data-value={s.value}>
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "5px",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Image
+                            src="/tick.svg"
+                            alt="tick"
+                            width={20}
+                            height={20}
+                          />
+                          <p>{s.label}</p>
+                        </div>
+                      </li>
+                    );
+                  } else return <li data-value={s.value}>{s.label}</li>;
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
       </div>
+
+      <div
+        className={`${styles.filterContainerMobile} ${styles.desktopHidden}`}
+      >
+        <div onClick={handleFilter}>
+          <p>FILTER</p>
+        </div>
+        {/* <div style={{ color: "#e5e5e5", height: "1px", width: "1px" }}></div> */}
+        <div
+          className={`${styles.select}`}
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          <p>{sortBasedOnList.find((s) => s.value === sortedOn)?.label}</p>
+          <Image
+            src="/arrow-bottom.svg"
+            alt="arrow bottom"
+            width={20}
+            height={20}
+          />
+          {isDropdownOpen && (
+            <div className={styles.dropdown}>
+              <ul onClick={handleSort}>
+                {sortBasedOnList.map((s) => {
+                  if (s.value === sortedOn) {
+                    return (
+                      <li data-value={s.value}>
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: "5px",
+                            alignItems: "center",
+                            width: "max-content",
+                          }}
+                        >
+                          <Image
+                            src="/tick.svg"
+                            alt="tick"
+                            width={20}
+                            height={20}
+                          />
+                          <p>{s.label}</p>
+                        </div>
+                      </li>
+                    );
+                  } else return <li data-value={s.value}>{s.label}</li>;
+                })}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+
       <div className={styles.container}>
         {filterEnabled && (
           <div className={styles.filterSidebar}>
+            <div
+              className={styles.desktopHidden}
+              onClick={() => setFilterEnabled(false)}
+              style={{ textAlign: "right", padding: "10px" }}
+            >
+              X
+            </div>
             {/* input box */}
             <div className={styles.inputbox}>
               <input type="checkbox" />
@@ -144,7 +270,7 @@ function Content() {
         <div
           className={`${styles.productsContainer} ${
             filterEnabled ? styles.gridWithFilter : styles.gridWithoutFilter
-          }`}
+          } ${styles.mobileHidden}`}
         >
           {displayProducts.map((p) => (
             <ProductCard key={p.id} product={p} />

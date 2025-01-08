@@ -65,7 +65,7 @@ function Footer() {
               <div
                 style={{ display: "flex", gap: "4px", alignItems: "center" }}
               >
-                <Image src="/usd.svg" alt="currency" width={24} height={24} />
+                <Image src="/usd.svg" alt="us flag" width={24} height={24} />
                 <div
                   style={{
                     width: "5px",
@@ -93,7 +93,7 @@ function Footer() {
             <h1>mettā muse</h1>
             <Image
               src="/arrow.svg"
-              alt="Appscrip logo"
+              alt="arrow"
               width={20}
               height={20}
               className={styles.desktopHidden}
@@ -130,7 +130,7 @@ function Footer() {
             <h1>Quick Links</h1>
             <Image
               src="/arrow.svg"
-              alt="Appscrip logo"
+              alt="arrow"
               width={20}
               height={20}
               className={styles.desktopHidden}
@@ -170,7 +170,7 @@ function Footer() {
               <h1>Follow Us</h1>
               <Image
                 src="/arrow.svg"
-                alt="Appscrip logo"
+                alt="arrow"
                 width={20}
                 height={20}
                 className={styles.desktopHidden}
@@ -178,29 +178,19 @@ function Footer() {
               />
             </div>
             <div className={`${styles.iconBox} ${styles.mobileHidden}`}>
-              <Image
-                src="/insta.svg"
-                alt="Appscrip logo"
-                width={32}
-                height={32}
-              />
-              <Image src="/a.svg" alt="Appscrip logo" width={32} height={32} />
+              <Image src="/insta.svg" alt="instagram" width={32} height={32} />
+              <Image src="/a.svg" alt="linkedin" width={32} height={32} />
             </div>
             {isFollowLinksOpen && (
               <div className={styles.desktopHidden}>
                 <div className={styles.iconBox}>
                   <Image
                     src="/insta.svg"
-                    alt="Appscrip logo"
+                    alt="instagram"
                     width={32}
                     height={32}
                   />
-                  <Image
-                    src="/a.svg"
-                    alt="Appscrip logo"
-                    width={32}
-                    height={32}
-                  />
+                  <Image src="/a.svg" alt="linkedin" width={32} height={32} />
                 </div>
               </div>
             )}
@@ -212,30 +202,20 @@ function Footer() {
               <h1>mettā muse Accepts</h1>
             </div>
             <div className={styles.iconBox}>
-              <Image
-                src="/gpay.svg"
-                alt="Appscrip logo"
-                width={56}
-                height={35}
-              />
+              <Image src="/gpay.svg" alt="gpay" width={56} height={35} />
               <Image
                 src="/mastercard.svg"
-                alt="Appscrip logo"
+                alt="mastercard"
                 width={56}
                 height={35}
               />
               <Image
                 src="/phonepay.svg"
-                alt="Appscrip logo"
+                alt="phonepay"
                 width={56}
                 height={35}
               />
-              <Image
-                src="/amex.svg"
-                alt="Appscrip logo"
-                width={56}
-                height={35}
-              />
+              <Image src="/amex.svg" alt="amex" width={56} height={35} />
             </div>
           </div>
         </div>
