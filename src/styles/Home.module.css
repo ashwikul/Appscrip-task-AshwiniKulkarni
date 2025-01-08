@@ -75,6 +75,155 @@
   flex-direction: column;
 }
 
+.footer {
+  /* position: fixed;
+  bottom: 0; */
+  background-color: black;
+  width: 100vw;
+  padding-top: 79px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.footer ul {
+  list-style-type: none;
+}
+
+.contactDetails {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.contact_currency {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contactDetails h1 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.contactusContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0px;
+}
+
+.currencyContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 0px;
+}
+
+.contactus {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.currency {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.currency p:nth-child(3) {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.signup div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signup p {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.subscribe {
+  display: flex;
+  gap: 20px;
+}
+
+.subscribe input {
+  width: 384px;
+  height: 47px;
+  padding: 24px 14px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #bfc8cd;
+}
+
+.subscribe button {
+  width: 184px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 18px;
+  color: #bfc8cd;
+  background-color: black;
+  border-radius: 5px;
+  border: 1.14px solid #ffffff;
+}
+
+.linksContainer {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.linksBox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.iconBox {
+  display: flex;
+  gap: 10px;
+}
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Mobile Breakpoint */
 @media screen and (max-width: 768px) {
   .hamburger {
@@ -127,5 +276,62 @@
   .navbarMobile div {
     display: flex;
     gap: 24px;
+  }
+
+  .contactDetails {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .subscribe input {
+    width: 75%;
+  }
+
+  .subscribe button {
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .signup {
+    gap: 10px;
+  }
+
+  .contactus {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    font-size: 14px;
+    align-items: center;
+  }
+
+  .currency {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  .linksContainer {
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 0px;
+  }
+
+  .linkheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .linkheader h1 {
+    font-size: 16px;
+  }
+
+  .copyright {
+    font-size: 14px;
   }
 }
