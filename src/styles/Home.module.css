@@ -224,6 +224,201 @@
   align-items: center;
 }
 
+.contentContainer {
+  /* padding-top: 96px; */
+  padding-left: 96px;
+  padding-right: 96px;
+  padding-bottom: 48px;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  /* width: 666px; */
+}
+
+.title h1 {
+  font-size: 60px;
+  font-weight: 400;
+  font-family: "Simplon Norm";
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.filterContainer > div {
+  display: flex;
+  gap: 20px;
+}
+
+.filterContainer button {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  color: #888792;
+  cursor: pointer;
+}
+
+.card {
+  width: 300px;
+  height: 462px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  background-color: #fff;
+  /* border: 1px solid #ddd; */
+}
+
+.card > img {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+.cardTitle {
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden; /* Hides the overflowing text */
+  text-overflow: ellipsis; /* Adds the ellipsis (...) */
+  width: 300px; /* Set a fixed width */
+}
+
+.descriptionContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  /* font-family: Simplon Norm; */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+  text-align: left;
+  color: #888792;
+}
+
+.productsContainer {
+  display: grid;
+  /* grid-template-columns: 300px 300px 300px 300px; */
+  /* grid-template-columns: auto auto auto auto; */
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.gridWithFilter {
+  grid-template-columns: repeat(3, auto);
+}
+
+.gridWithoutFilter {
+  grid-template-columns: repeat(4, auto);
+}
+
+.filterSidebar {
+  margin-right: 20px;
+  width: 300px;
+}
+
+.filterSidebar h1 {
+  font-family: Simplon Norm;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+}
+
+.inputbox {
+  display: flex;
+  gap: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e5e5e5;
+  width: 100%;
+}
+
+.box > .title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.box > .options {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 10px;
+}
+
+.box li:nth-child(1) {
+  font-family: Simplon Norm;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  color: #bfc8cd;
+}
+
+.container {
+  display: flex;
+  padding-top: 20px;
+}
+
+.cardTitle {
+  /* font-family: Simplon Norm; */
+  font-family: "Simplon Norm";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21.6px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loaderConatiner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #6e6f6f;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
 /* Mobile Breakpoint */
 @media screen and (max-width: 768px) {
   .hamburger {
@@ -333,5 +528,9 @@
 
   .copyright {
     font-size: 14px;
+  }
+
+  .contentContainer {
+    padding: 16px;
   }
 }
