@@ -16,11 +16,16 @@ function Header() {
           <button className={styles.hamburger} onClick={toggleMenu}>
             <Image src="/hamburger.svg" alt="Menu" width={20} height={20} />
           </button>
-          <Image src="/logo.svg" alt="Appscrip logo" width={20} height={20} />
+          <Image
+            src="/appLogo.svg"
+            alt="Appscrip logo"
+            width={20}
+            height={20}
+          />
         </div>
 
         <Image
-          src="/logo.svg"
+          src="/appLogo.svg"
           alt="Appscrip logo"
           width={36}
           height={36}
